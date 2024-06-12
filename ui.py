@@ -57,10 +57,10 @@ def display_home():
     # Adding space for details of two team members
     col1, col2 = st.columns(2)
     with col1:
-        st.image("/Users/sarthakahuja/Downloads/hypertensight/hticon.png", width=100, output_format='auto')
+        st.image("hticon.png", width=100, output_format='auto')
         st.write("")
     with col2:
-        st.image("/Users/sarthakahuja/Downloads/hypertensight/Eye problem.png", width=100, output_format='auto')
+        st.image("Eye problem.png", width=100, output_format='auto')
         st.write("")
         
     st.header("Our Team")
@@ -214,13 +214,13 @@ def main():
 
     with st.sidebar:
         st.title("Hypertensight")
-        st.image('/Users/sarthakahuja/Downloads/hypertensight/Eye scan.png', width=80)
+        st.image('Eye scan.png', width=80)
         st.markdown("""
             <h2>Hypertensight</h2>
             <p>Autonomous Hypertensive Retinopathy Detection System</p>
         """, unsafe_allow_html=True)
 
-    model_path = '/Users/sarthakahuja/Downloads/hypertensight/best.pt'  # Update with your path
+    model_path = 'best.pt'  # Update with your path
     model = load_model(model_path)
 
     tabs = st.tabs(["Home", "Diagnosis"])
