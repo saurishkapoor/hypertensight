@@ -29,7 +29,7 @@ def display_home():
         """
         <style>
         .background {
-            background: url('https://media3.giphy.com/media/ziQVZDpNBSV7G/giphy.gif?cid=6c09b952d9bdrlemavxugaxvei6dzc8k37cbq5burus68wqi&ep=v1_gifs_search&rid=giphy.gif&ct=g') no-repeat center center fixed;
+            background: url('https://scitechdaily.com/images/Cyborg-Technology-Concept.gif') no-repeat center center fixed;
             background-size: cover;
             padding: 50px;
             text-align: center;
