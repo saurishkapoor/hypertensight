@@ -1,0 +1,4 @@
+ultralytics
+fpdf2
+streamlit
+torchvision
