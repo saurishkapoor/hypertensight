@@ -29,7 +29,7 @@ def display_home():
         """
         <style>
         .background {
-            background: url('https://via.placeholder.com/1200x300.png?text=Background+Image') no-repeat center center fixed;
+            background: url('https://media3.giphy.com/media/ziQVZDpNBSV7G/giphy.gif?cid=6c09b952d9bdrlemavxugaxvei6dzc8k37cbq5burus68wqi&ep=v1_gifs_search&rid=giphy.gif&ct=g') no-repeat center center fixed;
             background-size: cover;
             padding: 50px;
             text-align: center;
@@ -45,7 +45,7 @@ def display_home():
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="background"><div class="content"><h1>Welcome to Hypertensight</h1><p>Hypertensight is the first and only autonomous Artificial Intelligence system for the detection and automated early diagnosis of Hypertensive Retinopathy </p></div></div>',
+        '<div class="background"><div class="content"><h1>Hypertensight</h1><p>Hypertensight is the first and only autonomous Artificial Intelligence system for the detection and automated early diagnosis of Hypertensive Retinopathy </p></div></div>',
         unsafe_allow_html=True
     )
     st.header("Problem")
@@ -54,35 +54,17 @@ def display_home():
     st.header("Solution")
     st.write("Our solution, Hypertensight, is the first autonomous AI system designed for early detection and diagnosis of hypertensive retinopathy from retinal images. Integrated into ophthalmological practices, Hypertensight uses advanced AI technologies to significantly improve the efficiency and accuracy of detection, even in early stages. By delivering rapid automated diagnostic reports, Hypertensight provides timely insights for healthcare providers, facilitating prompt intervention to mitigate vision loss risk. Employing a sophisticated AI-driven methodology, Hypertensight enhances digital retinal images through a meticulous process including image resizing, green channel extraction, and Contrast Limited Adaptive Histogram Equalization (CLAHE). Powered by YOLO v8, a robust Convolutional Neural Network trained on extensive datasets, Hypertensight excels in identifying subtle indicators of hypertensive retinopathy with high sensitivity and specificity. Healthcare providers receive immediate feedback and automated reports summarizing findings and severity assessments based on clinical scales. This streamlined process enhances diagnostic precision and empowers clinicians to optimize patient care promptly, potentially improving outcomes for hypertensive individuals at risk of vision impairment.")
     
-    # Adding space for details of two team members
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image("hticon.png", width=100, output_format='auto')
-        st.write("")
-    with col2:
-        st.image("Eye problem.png", width=100, output_format='auto')
-        st.write("")
-        
     st.header("Our Team")
     st.write("We are a team of dedicated professionals with expertise in medical imaging and artificial intelligence, committed to improving healthcare outcomes.")
     
-    # Adding space for details of two team members
     col1, col2 = st.columns(2)
     with col1:
-        st.image("https://media.licdn.com/dms/image/D5603AQEtVNwteEzQ0w/profile-displayphoto-shrink_800_800/0/1713299622243?e=1723680000&v=beta&t=0Q_aW5Y41QKiLrc4u5zmPU1i_x7WLjx8yUGmztHk_pc", caption="Sarthak Ahuja", width=300, output_format='auto')
+        st.image("https://media.licdn.com/dms/image/D5603AQEtVNwteEzQ0w/profile-displayphoto-shrink_800_800/0/1713299622243?e=1723680000&v=beta&t=0Q_aW5Y41QKiLrc4u5zmPU1i_x7WLjx8yUGmztHk_pc", caption="Sarthak Ahuja", width=300)
         st.write("Meet Sarthak Ahuja, the visionary mind behind Hypertensight. With a solid foundation in Artificial Intelligence and Machine Learning, Sarthak not only conceptualized the idea but also meticulously crafted the entire platform from the ground up. His expertise, honed through an AI/ML course with the National University of Singapore and an internship in the Artificial Intelligence department at AWS, where he developed a healthcare chatbot, ensures that our diagnostic tools are not only accurate and efficient but also at the forefront of technological advancement in healthcare.")
     with col2:
-        st.image("https://media.licdn.com/dms/image/D5603AQFOghhs5kVaQw/profile-displayphoto-shrink_800_800/0/1710857507676?e=1723680000&v=beta&t=NuydX9GRKHGLoQrNh5xIC5sey0GVpywau-LGR7emdAo", caption="Suhana Grewal", width=300, output_format='auto')
+        st.image("https://media.licdn.com/dms/image/D5603AQFOghhs5kVaQw/profile-displayphoto-shrink_800_800/0/1710857507676?e=1723680000&v=beta&t=NuydX9GRKHGLoQrNh5xIC5sey0GVpywau-LGR7emdAo", caption="Suhana Grewal", width=300)
         st.write("Introducing Suhana Grewal, the strategic powerhouse driving our business and partnership initiatives. With a unique background in Biology and Business, Suhana brings a deep understanding of healthcare provider needs and challenges. She has enhanced her business acumen through courses like Financial Markets by Yale University, allowing her to effectively forge partnerships and identify growth opportunities. Suhana's leadership in business development and strategic planning has been instrumental in expanding our reach and impact in the healthcare sector.")
-        
-    # Centering the images within the columns
-    col1.markdown(
-    "<style>div.stImage > img {display: block; margin-left: auto; margin-right: auto;}</style>", 
-    unsafe_allow_html=True)
-    col2.markdown(
-    "<style>div.stImage > img {display: block; margin-left: auto; margin-right: auto;}</style>", 
-    unsafe_allow_html=True)
-
+    
 # Function to display the diagnosis page
 def display_diagnosis(model):
     st.header("Autonomous Hypertensive Retinopathy Detection System")
@@ -212,23 +194,31 @@ def reportpdf(name, diagnosis_message, image, processed_image):
 def main():
     st.set_page_config(layout="wide", page_title="Hypertensight - Retinopathy Detection")
 
+   
+   
     with st.sidebar:
-        st.title("Hypertensight")
-        st.image('Eye scan.png', width=80)
         st.markdown("""
-            <h2>Hypertensight</h2>
-            <p>Autonomous Hypertensive Retinopathy Detection System</p>
-        """, unsafe_allow_html=True)
+    <div style="display: flex; align-items: center; justify-content: center; text-align: center;">
+        <div style="margin-right: 10px;">
+            <img src="https://firebasestorage.googleapis.com/v0/b/gr8er-ib.appspot.com/o/eyescan.png?alt=media&token=7d40ad8c-a786-4149-8c49-2cc488c782f4" width="100">
+        </div>
+        <div>
+            <h2 style="margin: 0;">Hypertensight</h2>
+            <p style="margin-bottom: 20px;">Autonomous Hypertensive Retinopathy Detection System</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+        
+        tabs = st.radio("", ["Home", "Diagnosis"])
 
     model_path = 'best.pt'  # Update with your path
     model = load_model(model_path)
 
-    tabs = st.tabs(["Home", "Diagnosis"])
-    
-    with tabs[0]:
+    if tabs == "Home":
         display_home()
-        
-    with tabs[1]:
+    elif tabs == "Diagnosis":
         display_diagnosis(model)
 
 if __name__ == "__main__":
