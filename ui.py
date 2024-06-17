@@ -45,7 +45,7 @@ def display_home():
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="background"><div class="content"><h1>Hypertensight</h1><p>Hypertensight is the first and only autonomous Artificial Intelligence system for the detection and automated early diagnosis of Hypertensive Retinopathy </p></div></div>',
+        '<div class="background"><div class="content"><h1>Hypertensight</h1><p>Machine Learning Augmented Ophthalmological System for the automated detection and early diagnosis of Hypertensive Retinopathy </p></div></div>',
         unsafe_allow_html=True
     )
     st.header("Problem")
