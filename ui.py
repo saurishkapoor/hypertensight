@@ -190,8 +190,8 @@ def reportpdf(name, diagnosis_message, image, processed_image, gender, age, dura
     
     pdf.set_font('helvetica', size=12)
     pdf.set_text_color(0, 0, 0)
-    pdf.text(41, 205, "Original Image")
-    pdf.text(139, 205, "Processed Image")
+    pdf.text(41, 202, "Original Image")
+    pdf.text(139, 202, "Processed Image")
     
    
     pdf.output("report.pdf")
