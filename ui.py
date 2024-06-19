@@ -29,7 +29,7 @@ def display_home():
         """
         <style>
         .background {
-            background: url('https://i.gifer.com/84lc.gif') no-repeat center center fixed;
+            background: url('https://media3.giphy.com/media/ziQVZDpNBSV7G/giphy.gif?cid=6c09b952d9bdrlemavxugaxvei6dzc8k37cbq5burus68wqi&ep=v1_gifs_search&rid=giphy.gif&ct=g') no-repeat center center fixed;
             background-size: cover;
             padding: 50px;
             text-align: center;
@@ -45,11 +45,11 @@ def display_home():
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="background"><div class="content"><h1>Hypertensight</h1><p>A Novel Deep Learning Augmented Ophthalmic Diagnostic System for Early Detection and Risk Stratification of Hypertensive Retinopathy </p></div></div>',
+        '<div class="background"><div class="content"><h1>Hypertensight</h1><p>Hypertensight is the first and only autonomous Artificial Intelligence system for the detection and automated early diagnosis of Hypertensive Retinopathy </p></div></div>',
         unsafe_allow_html=True
     )
     st.header("Problem")
-    st.write("Diagnosing hypertensive retinopathy (HR) is fraught with challenges primarily due to the absence of efficient diagnostic methods, which hampers early detection and treatment effectiveness. HR, a complication of hypertension affecting the retina, poses a risk of irreversible blindness if not promptly managed. Current estimates indicate that even though the percentage varies by demographic groups, 2-17% people with hypertension and no comorbidities are expected to be diagnosed with hypertensive retinopathy. This translates to about 22.6 million to 198.88 million people worldwide. Simply put, out of all people in the world, approximately 0.283% - 2.486% have HR. The conventional approach to diagnosing HR involves manual examination of fundus images to identify subtle disease markers, a process prone to human error and time-intensive evaluations, especially in detecting early-stage symptoms. This delay in detection often results in advanced disease progression by the time symptoms become evident, compromising treatment efficacy. Moreover, the manual review process contributes to significant image review backlogs, prolonging the time to diagnosis and treatment initiation.")
+    st.write("Diagnosing hypertensive retinopathy (HR) is fraught with challenges primarily due to the absence of efficient diagnostic methods, which hampers early detection and treatment effectiveness. HR, a complication of hypertension affecting the retina, poses a risk of irreversible blindness if not promptly managed. Current estimates indicate that approximately 377 million individuals, representing one-third of the 1.13 billion adults with hypertension worldwide, are at risk of developing HR. The conventional approach to diagnosing HR involves manual examination of fundus images to identify subtle disease markers, a process prone to human error and time-intensive evaluations, especially in detecting early-stage symptoms. This delay in detection often results in advanced disease progression by the time symptoms become evident, compromising treatment efficacy. Moreover, the manual review process contributes to significant image review backlogs, prolonging the time to diagnosis and treatment initiation.")
     
     st.header("Solution")
     st.write("Our solution, Hypertensight, is the first autonomous AI system designed for early detection and diagnosis of hypertensive retinopathy from retinal images. Integrated into ophthalmological practices, Hypertensight uses advanced AI technologies to significantly improve the efficiency and accuracy of detection, even in early stages. By delivering rapid automated diagnostic reports, Hypertensight provides timely insights for healthcare providers, facilitating prompt intervention to mitigate vision loss risk. Employing a sophisticated AI-driven methodology, Hypertensight enhances digital retinal images through a meticulous process including image resizing, green channel extraction, and Contrast Limited Adaptive Histogram Equalization (CLAHE). Powered by YOLO v8, a robust Convolutional Neural Network trained on extensive datasets, Hypertensight excels in identifying subtle indicators of hypertensive retinopathy with high sensitivity and specificity. Healthcare providers receive immediate feedback and automated reports summarizing findings and severity assessments based on clinical scales. This streamlined process enhances diagnostic precision and empowers clinicians to optimize patient care promptly, potentially improving outcomes for hypertensive individuals at risk of vision impairment.")
@@ -93,6 +93,9 @@ def display_diagnosis(model):
     """)
     
     patient_name = st.text_input("Enter the patient's name:")
+    patient_age = st.number_input("Enter the patient's Age:")
+    patient_gender = st.selectbox("Enter the patient's gender?", ("Male", "Female", "Prefer not to say"))
+    patient_duration = st.selectbox("How long has the patient had hypertension for?", ("<1 year", "<5 years", ">5 years"))
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     
     if uploaded_file is not None:
@@ -136,7 +139,7 @@ def display_diagnosis(model):
                 
                 st.write(diagnosis_message)
                 
-                reportpdf(patient_name, diagnosis_message, uploaded_file, processed_image)
+                reportpdf(patient_name, diagnosis_message, uploaded_file, processed_image, patient_gender, patient_age, patient_duration)
                 with open('report.pdf', 'rb') as report: 
                     st.download_button(
                         label = "Download Report",
@@ -149,7 +152,7 @@ def display_diagnosis(model):
                 st.error("Error during classification:")
                 st.error(e)
 
-def reportpdf(name, diagnosis_message, image, processed_image):
+def reportpdf(name, diagnosis_message, image, processed_image, gender, age, duration):
     now = datetime.now()
     current_time = now.strftime("%H:%M:%S")
     today = date.today()
@@ -158,11 +161,11 @@ def reportpdf(name, diagnosis_message, image, processed_image):
     pdf.add_page()
     pdf.set_font('helvetica', 'B', size=12)
     
-    # Print the heading with extra space after
+    
     pdf.cell(200, 10, txt="Hypertensive Retinopathy Analysis Report", ln=True, align='C')
     pdf.ln(10)  # Add 10 units of space
     
-    # Add watermark
+    
     pdf.set_text_color(200, 200, 200)  # Light gray color for watermark
     pdf.set_font_size(85)
     pdf.set_font('helvetica')
@@ -170,24 +173,27 @@ def reportpdf(name, diagnosis_message, image, processed_image):
     pdf.text(-150, 194, "Hypertensight Tech")
     pdf.rotate(0)  # Reset rotation
     
-    # Print the rest of the information
+   
     pdf.set_font('helvetica', size=12)
     pdf.set_text_color(0, 0, 0)
     pdf.cell(200, 10, txt=f"Date: {today}", ln=True, align='L')
     pdf.cell(200, 10, txt=f"Time: {current_time}", ln=True, align='L')
     pdf.cell(200, 10, txt=f'Patient Name: {name}', ln=True, align='L')
+    pdf.cell(200, 10, txt=f'Patient Age: {age}', ln=True, align='L')
+    pdf.cell(200, 10, txt=f'Patient Gender: {gender}', ln=True, align='L')
+    pdf.cell(200, 10, txt=f'Duration of Hypertension: {duration}', ln=True, align='L')
     pdf.multi_cell(200, 10, txt=f'Analysis Result: {diagnosis_message}', ln=True, align='L')
     
-    # Place images
-    pdf.image(image, x=10, y=80, w=90, h=80)
-    pdf.image('pi.jpg', x=110, y=80, w=90, h=80)
+    
+    pdf.image(image, x=10, y=115, w=90, h=80)
+    pdf.image('pi.jpg', x=110, y=115, w=90, h=80)
     
     pdf.set_font('helvetica', size=12)
     pdf.set_text_color(0, 0, 0)
-    pdf.text(41, 166, "Original Image")
-    pdf.text(139, 166, "Processed Image")
+    pdf.text(41, 205, "Original Image")
+    pdf.text(139, 205, "Processed Image")
     
-    # Output the PDF to file
+   
     pdf.output("report.pdf")
 
 # Main function to run the Streamlit app
