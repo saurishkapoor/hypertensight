@@ -29,7 +29,7 @@ def display_home():
         """
         <style>
         .background {
-            background: url('https://media3.giphy.com/media/ziQVZDpNBSV7G/giphy.gif?cid=6c09b952d9bdrlemavxugaxvei6dzc8k37cbq5burus68wqi&ep=v1_gifs_search&rid=giphy.gif&ct=g') no-repeat center center fixed;
+            background: url('https://i.gifer.com/84lc.gif') no-repeat center center fixed;
             background-size: cover;
             padding: 50px;
             text-align: center;
@@ -45,7 +45,7 @@ def display_home():
         unsafe_allow_html=True
     )
     st.markdown(
-        '<div class="background"><div class="content"><h1>Hypertensight</h1><p>Hypertensight is the first and only autonomous Artificial Intelligence system for the detection and automated early diagnosis of Hypertensive Retinopathy </p></div></div>',
+        '<div class="background"><div class="content"><h1>Hypertensight</h1><p>A Novel Deep Learning Augmented Ophthalmic Diagnostic System for Early Detection and Risk Stratification Reporting of Hypertensive Retinopathy</p></div></div>',
         unsafe_allow_html=True
     )
     st.header("Problem")
