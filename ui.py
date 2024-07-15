@@ -59,7 +59,7 @@ def display_home():
     
     col1, col2 = st.columns(2)
     with col1:
-        st.image("108287", caption="Sarthak Ahuja", width=300)
+        st.image("https://media.licdn.com/dms/image/D5603AQG0BWdI8Fjf9A/profile-displayphoto-shrink_800_800/0/1720973014753?e=1726704000&v=beta&t=EbMSRfeIoFmaN3957tjrMhwrS82ylm9-BsXBGTQ6_mI", caption="Sarthak Ahuja", width=300)
         st.write("Meet Sarthak Ahuja, the visionary mind behind Hypertensight. With a solid foundation in Artificial Intelligence and Machine Learning, Sarthak not only conceptualized the idea but also meticulously crafted the entire platform from the ground up. His expertise, honed through an AI/ML course with the National University of Singapore and an internship in the Artificial Intelligence department at AWS, where he developed a healthcare chatbot, ensures that our diagnostic tools are not only accurate and efficient but also at the forefront of technological advancement in healthcare.")
     with col2:
         st.image("https://media.licdn.com/dms/image/D5603AQFOghhs5kVaQw/profile-displayphoto-shrink_800_800/0/1710857507676?e=1723680000&v=beta&t=NuydX9GRKHGLoQrNh5xIC5sey0GVpywau-LGR7emdAo", caption="Suhana Grewal", width=300)
