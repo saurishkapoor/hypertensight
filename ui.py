@@ -54,8 +54,7 @@ def display_home():
     st.header("Solution")
     st.write("Our solution, Hypertensight, is the first autonomous AI system designed for early detection and diagnosis of hypertensive retinopathy from retinal images. Integrated into ophthalmological practices, Hypertensight uses advanced AI technologies to significantly improve the efficiency and accuracy of detection, even in early stages. By delivering rapid automated diagnostic reports, Hypertensight provides timely insights for healthcare providers, facilitating prompt intervention to mitigate vision loss risk. Employing a sophisticated AI-driven methodology, Hypertensight enhances digital retinal images through a meticulous process including image resizing, green channel extraction, and Contrast Limited Adaptive Histogram Equalization (CLAHE). Powered by YOLO v8, a robust Convolutional Neural Network trained on extensive datasets, Hypertensight excels in identifying subtle indicators of hypertensive retinopathy with high sensitivity and specificity. Healthcare providers receive immediate feedback and automated reports summarizing findings and severity assessments based on clinical scales. This streamlined process enhances diagnostic precision and empowers clinicians to optimize patient care promptly, potentially improving outcomes for hypertensive individuals at risk of vision impairment.")
     
-    st.header("Our Team")
-    st.write("We are a team of dedicated professionals with expertise in medical imaging and artificial intelligence, committed to improving healthcare outcomes.")
+    st.header("Founder")
     
     col1, col2 = st.columns(2)
     with col1:
